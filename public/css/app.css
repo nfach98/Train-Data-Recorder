@@ -1,0 +1,11 @@
+html, body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.card{
+	border-radius: 2rem;
+}
+
+.btn{
+	border-radius: .75rem;
+}
