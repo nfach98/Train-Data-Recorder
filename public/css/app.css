@@ -22,6 +22,7 @@ html, body {
 
 .form-control:focus{
   	border-color: var(--red);
+  	border-width: .1em;
   	box-shadow: none;
 }
 
@@ -39,6 +40,16 @@ html, body {
 .btn.btn-primary:active:focus {
 	background-color: var(--red-dark) !important;
 	border-color: transparent;
+	box-shadow: none;
+}
+
+.custom-control-label:before{
+	box-shadow: none;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  	background-color: var(--red);
+  	border-color: transparent;
 	box-shadow: none;
 }
 

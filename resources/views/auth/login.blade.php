@@ -48,7 +48,7 @@
 
                             <div class="form-group row mb-2">
                                 <div class="col-12">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  placeholder="Password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  placeholder="Password" data-toggle="password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -60,12 +60,12 @@
 
                             <div class="form-group row mb-3">
                                 <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <div class="custom-control custom-checkbox mb-3">
+                                      <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
+                                      <label class="custom-control-label shadow-none" for="remember">
+                                          {{ __('Remember Me') }}
+                                      </label>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                             </div>
 
                             <div class="form-group mb-0">
-                                <p>Ahmad Eka Fauzi © 2021</p>
+                                <p class="mb-0">Ahmad Eka Fauzi © 2021</p>
                             </div>
                         </form>
                     </div>
