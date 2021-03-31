@@ -36,7 +36,7 @@
 
                             <div class="form-group row mb-3">
                                 <div class="col-12">
-                                    <input id="id-pegawai" type="text" class="form-control @error('id_pegawai') is-invalid @enderror" name="id_pegawai" value="{{ old('id_pegawai') }}" required autocomplete="id_pegawai" autofocus>
+                                    <input id="id-pegawai" type="text" class="form-control @error('id_pegawai') is-invalid @enderror" name="id_pegawai" value="{{ old('id_pegawai') }}" required autocomplete="id_pegawai" placeholder="ID Pegawai">
 
                                     @error('id_pegawai')
                                         <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
 
                             <div class="form-group row mb-2">
                                 <div class="col-12">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  placeholder="Password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -72,13 +72,13 @@
 
                             <div class="form-group row mb-5">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary w-100">
+                                    <button type="submit" class="btn btn-primary shadow-none w-100">
                                         {{ __('Login') }}
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
+                            <div class="form-group mb-0">
                                 <p>Ahmad Eka Fauzi © 2021</p>
                             </div>
                         </form>
