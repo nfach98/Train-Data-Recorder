@@ -86,12 +86,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mb-2">
+                                    <div class="form-group row mb-3">
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary shadow-none w-100">
                                                 {{ __('Register') }}
                                             </button>
                                         </div>
+                                    </div>
+
+                                    <div class="form-group mb-5">
+                                        <p align="center">Sudah punya akun? <a href="{{ url('/login') }}" style="font-weight: 600;">Masuk</a></p>
                                     </div>
 
                                     <div class="form-group mb-0">
