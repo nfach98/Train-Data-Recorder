@@ -30,7 +30,7 @@
                                 </div>
                                 
                                 <div class="row mb-3">
-                                    <h3 align="center" style="font-weight: 600;">Daftar untuk bergabung di {{config('app.name')}}</h3>
+                                    <h3 align="center" style="font-weight: 600;">{{ __('sign.welcome_register') }} {{config('app.name')}}</h3>
                                 </div>
                             </div>
 
@@ -89,13 +89,13 @@
                                     <div class="form-group row mb-3">
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary shadow-none w-100">
-                                                {{ __('Register') }}
+                                                {{ __('sign.register') }}
                                             </button>
                                         </div>
                                     </div>
 
                                     <div class="form-group mb-5">
-                                        <p align="center">Sudah punya akun? <a href="{{ url('/login') }}" style="font-weight: 600;">Masuk</a></p>
+                                        <p align="center">{{ __('sign.alr_have_acc') }} <a href="{{ url('/login') }}" style="font-weight: 600;">{{ __('sign.login') }}</a></p>
                                     </div>
 
                                     <div class="form-group mb-0">

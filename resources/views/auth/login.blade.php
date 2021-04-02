@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="col my-3 mx-auto">
-                            <h3 align="center" style="font-weight: 600;">Selamat datang di <br/> {{config('app.name')}}</h3>
+                            <h3 align="center" style="font-weight: 600;">{{ __('sign.welcome_login') }} <br/> {{config('app.name')}}</h3>
                         </div>
 
                         <form method="POST" action="{{ route('login') }}" style="text-align: center;">
@@ -64,7 +64,7 @@
                                       <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                       <label class="custom-control-label shadow-none" for="remember">
-                                          {{ __('Remember Me') }}
+                                          {{ __('sign.remember_me') }}
                                       </label>
                                     </div>
                                 </div>
@@ -73,13 +73,13 @@
                             <div class="form-group row mb-3">
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary shadow-none w-100">
-                                        {{ __('Login') }}
+                                        {{ __('sign.login') }}
                                     </button>
                                 </div>
                             </div>
 
                             <div class="form-group mb-5">
-                                <p align="center">Belum punya akun? <a href="{{ url('/register') }}" style="font-weight: 600;">Daftar</a></p>
+                                <p align="center">{{ __('sign.dont_have_acc') }} <a href="{{ url('/register') }}" style="font-weight: 600;">{{ __('sign.register') }}</a></p>
                             </div>
 
                             <div class="form-group mb-0">
