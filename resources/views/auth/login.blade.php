@@ -70,7 +70,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-5">
+                            <div class="form-group row mb-3">
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary shadow-none w-100">
                                         {{ __('Login') }}
@@ -78,8 +78,12 @@
                                 </div>
                             </div>
 
+                            <div class="form-group mb-5">
+                                <p align="center">Belum punya akun? <a href="{{ url('/register') }}" style="font-weight: 600;">Daftar</a></p>
+                            </div>
+
                             <div class="form-group mb-0">
-                                <p class="mb-0">Ahmad Eka Fauzi © 2021</p>
+                                <p class="mb-0" style="font-size: .8em;">Ahmad Eka Fauzi © 2021</p>
                             </div>
                         </form>
                     </div>

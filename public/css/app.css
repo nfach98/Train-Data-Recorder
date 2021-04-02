@@ -38,19 +38,29 @@ html, body {
 .btn.btn-primary:hover,
 .btn.btn-primary:focus,
 .btn.btn-primary:active:focus {
-	background-color: var(--red-dark) !important;
-	border-color: transparent;
-	box-shadow: none;
+  	background-color: var(--red-dark) !important;
+  	border-color: transparent;
+  	box-shadow: none;
 }
 
 .custom-control-label:before{
-	box-shadow: none;
+	 box-shadow: none;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
   	background-color: var(--red);
   	border-color: transparent;
-	box-shadow: none;
+	 box-shadow: none;
+}
+
+a{
+  color: var(--red);
+}
+
+a:active,
+a:hover,
+a:focus{
+  color: var(--red-dark);
 }
 
 /*.form-group .form-label {
