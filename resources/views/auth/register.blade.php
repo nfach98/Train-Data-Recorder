@@ -93,6 +93,10 @@
                                             </button>
                                         </div>
                                     </div>
+
+                                    <div class="form-group mb-0">
+                                        <p class="mb-0" style="font-size: .8em;">Ahmad Eka Fauzi © 2021</p>
+                                    </div>
                                 </form>
                             </div>
                         </div>
