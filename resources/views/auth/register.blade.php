@@ -20,7 +20,7 @@
 <div id="app">
     <div class="container h-100">
         <div class="row d-flex h-100">
-            <div class="col-md-10 my-auto mx-auto">
+            <div class="col-10 my-auto mx-auto">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
