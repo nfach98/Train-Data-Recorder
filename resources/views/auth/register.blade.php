@@ -25,15 +25,30 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-5 my-auto">
-                                <h3 style="font-weight: 600;">Daftar untuk bergabung di {{config('app.name')}}</h3>
+                                <div class="row mb-2">
+                                    <img class="mx-auto my-auto" src="{{ asset('images/logo.png') }}" alt="Logo TDR" style="height: 35%; width: 35%;">
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <h3 align="center" style="font-weight: 600;">Daftar untuk bergabung di {{config('app.name')}}</h3>
+                                </div>
                             </div>
 
-                            <div class="col-md-1">  
-                            </div>
-
-                            <div class="col-md-6">
-                                <form method="POST" action="{{ route('login') }}" style="text-align: center;">
+                            <div class="col-md-7">
+                                <form method="POST" action="{{ route('register') }}" style="text-align: center;">
                                     @csrf
+
+                                    <div class="form-group row mb-3">
+                                        <div class="col-12">
+                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Nama">
+
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row mb-3">
                                         <div class="col-12">
@@ -47,7 +62,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mb-2">
+                                    <div class="form-group row mb-3">
                                         <div class="col-12">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  placeholder="Password" data-toggle="password">
 
@@ -59,28 +74,24 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mb-3">
-                                        <div class="col-12">
-                                            <div class="custom-control custom-checkbox mb-3">
-                                              <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                              <label class="custom-control-label shadow-none" for="remember">
-                                                  {{ __('Remember Me') }}
-                                              </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="form-group row mb-5">
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-primary shadow-none w-100">
-                                                {{ __('Login') }}
-                                            </button>
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Password" required autocomplete="new-password">
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
 
-                                    <div class="form-group mb-0">
-                                        <p class="mb-0">Ahmad Eka Fauzi © 2021</p>
+                                    <div class="form-group row mb-2">
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary shadow-none w-100">
+                                                {{ __('Register') }}
+                                            </button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
