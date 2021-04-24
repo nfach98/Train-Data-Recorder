@@ -6,7 +6,7 @@
     <div class="border-right" id="sidebar-wrapper">
         <a class="navbar-brand" href="{{ url('/') }}" style="color: white;">
             <div>
-                <img class="mx-auto" src="{{ asset('images/logo.png') }}" alt="Logo TDR" style="height: 50%; width: 50%;">
+                <img class="mx-auto" src="{{ asset('images/logo_white.png') }}" alt="Logo TDR" style="height: 50%; width: 50%;">
                 <h4 align="center">{{ config('app.name', 'Train Data Recorder') }}</h4>
             </div>
         </a>
