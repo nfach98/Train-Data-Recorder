@@ -30,17 +30,39 @@ html, body {
 	border-color: transparent;
 }
 
+.btn:active,
+.btn:hover,
+.btn:focus,
+.btn:active:focus {
+  	border-color: transparent;
+  	box-shadow: none;
+}
+
 .btn-primary{
-	background-color: var(--red);
+  background-color: var(--red);
 }
 
 .btn.btn-primary:active,
 .btn.btn-primary:hover,
 .btn.btn-primary:focus,
 .btn.btn-primary:active:focus {
-  	background-color: var(--red-dark) !important;
-  	border-color: transparent;
-  	box-shadow: none;
+    background-color: var(--red-dark) !important;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.btn-transparent{
+  background-color: transparent;
+  color: var(--red);
+}
+
+.btn.btn-transparent:active,
+.btn.btn-transparent:hover,
+.btn.btn-transparent:focus,
+.btn.btn-transparent:active:focus {
+  color: var(--red-dark) !important;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .custom-control-label:before{
