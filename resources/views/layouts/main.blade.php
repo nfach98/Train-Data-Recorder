@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+  @yield('script')
+@endsection
+
 @section('content')
   <div class="d-flex" id="wrapper">
       <div class="border-right" id="sidebar-wrapper">
@@ -133,7 +137,6 @@
       </div>
   </div>
 
-  @yield('script')
   <script>
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
