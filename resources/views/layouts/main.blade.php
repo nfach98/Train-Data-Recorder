@@ -16,27 +16,55 @@
                           <i class="fas fa-tachometer-alt"></i>
                       </div>
                       <div class="col">
-                          <p class="mb-0">Dashboard</p>
+                          <p class="font-weight-bold mb-0">Dashboard</p>
                       </div>
                   </div>
               </a>
-              <a href="{{ url('/monitoring') }}" class="list-group-item list-group-item-action">
+
+              <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#menu-monitoring" role="button" aria-expanded="false" aria-controls="menu-monitoring">
                   <div class="row px-2 py-2">
                       <div class="col-2">
                           <i class="fas fa-desktop"></i>
                       </div>
                       <div class="col">
-                          <p class="mb-0">Monitoring</p>
+                          <p class="font-weight-bold mb-0">Monitoring</p>
                       </div>
                   </div>
               </a>
+
+              <div class="collapse list-group list-group-flush" id="menu-monitoring">
+                  <a href="{{ url('/monitoring') }}" class="list-group-item list-group-item-action">
+                      <div class="row px-2">
+                          <div class="col">
+                              <p class="mb-0">Motor Car 1</p>
+                          </div>
+                      </div>
+                  </a>
+
+                  <a href="{{ url('/monitoring') }}" class="list-group-item list-group-item-action">
+                      <div class="row px-2">
+                          <div class="col">
+                              <p class="mb-0">Motor 1</p>
+                          </div>
+                      </div>
+                  </a>
+
+                  <a href="{{ url('/monitoring') }}" class="list-group-item list-group-item-action">
+                      <div class="row px-2">
+                          <div class="col">
+                              <p class="mb-0">Trailer Car 1</p>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+
               <a href="#" class="list-group-item list-group-item-action">
                   <div class="row px-2 py-2">
                       <div class="col-2">
                           <i class="fas fa-map-marker-alt"></i>
                       </div>
                       <div class="col">
-                          <p class="mb-0">Location</p>
+                          <p class="font-weight-bold mb-0">Location</p>
                       </div>
                   </div>
               </a>
