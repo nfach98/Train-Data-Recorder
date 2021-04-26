@@ -7,11 +7,13 @@
         chart: {
           type: 'line',
           height: '300',
+          fontFamily: 'Ubuntu, sans-serif',
         },
         series: [{
           name: 'sales',
           data: [30,40,35,50,49,60,70,91,125]
         }],
+        colors: ['#DE0618'],
         xaxis: {
           categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
         }
@@ -29,6 +31,7 @@
           name: 'sales',
           data: [30,40,35,50,49,60,70,91,125]
         }],
+        colors: ['#DE0618'],
         xaxis: {
           categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
         }
@@ -54,7 +57,7 @@
                           <div class="text-xs font-weight-bold text-uppercase mb-1">Kemiringan</div>
                       </div>
                       <div class="col-auto">
-                          <i class="fas fa-map-marker-alt fa-2x text-gray-300" style="color: var(--red);"></i>
+                          <i class="fas fa-drafting-compass fa-2x text-gray-300" style="color: var(--red);"></i>
                       </div>
                   </div>
 
@@ -71,7 +74,7 @@
                           <div class="text-xs font-weight-bold text-uppercase mb-1">Temperatur Bearing</div>
                       </div>
                       <div class="col-auto">
-                          <i class="fas fa-map-marker-alt fa-2x text-gray-300" style="color: var(--red);"></i>
+                          <i class="fas fa-thermometer-half fa-2x text-gray-300" style="color: var(--red);"></i>
                       </div>
                   </div>
 
