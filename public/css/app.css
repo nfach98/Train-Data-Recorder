@@ -8,6 +8,7 @@ html, body {
 }
 
 .card{
+  border: none;
 	border-radius: 2rem;
 }
 
@@ -83,6 +84,7 @@ a:active,
 a:hover,
 a:focus{
   color: var(--red-dark);
+  text-decoration: none;
 }
 
 #wrapper {
@@ -119,8 +121,15 @@ a:focus{
 
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
-  /*padding-left: 0 !important;
-  padding-right: 0 !important;*/
+}
+
+.navbar-nav .dropdown-menu{
+  position: absolute !important;
+  float: none;
+  border: none;
+  box-shadow: 0px 2px 25px 0px rgba(0,0,0,.1) !important;
+  -webkit-box-shadow: 0px 2px 25px 0px rgba(0,0,0,.3) !important;
+  -moz-box-shadow: 0px 2px 25px 0px rgba(0,0,0,.3) !important;
 }
 
 @media (min-width: 768px) {
@@ -135,8 +144,6 @@ a:focus{
 
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
-    /*padding-left: 0 !important;
-    padding-right: 0 !important;*/
   }
 }
 /*.form-group .form-label {
