@@ -11,11 +11,11 @@
         },
         series: [{
           name: 'sales',
-          data: [30,40,35,50,49,60,70,91,125]
+          data: [null,null,null,null,null,null,null,null,125]
         }],
         colors: ['#DE0618'],
         xaxis: {
-          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+          categories: [1991,1992,1993,1994,1995,1996,1997,1998,1999]
         }
       }
 
@@ -49,7 +49,7 @@
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
       </div>
 
-      <div class="col-12 mb-4 px-0">
+      <div class="col-12 mb-4">
           <div class="card shadow h-100 py-2">
               <div class="card-body">
                   <div class="row no-gutters align-items-top">

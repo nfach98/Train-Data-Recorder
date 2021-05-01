@@ -7,6 +7,8 @@ Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
 
 Route::get('/monitoring', [App\Http\Controllers\MonitoringController::class, 'index']);
 
+Route::get('/location', [App\Http\Controllers\LocationController::class, 'index']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\DashboardController::class, 'index'])->name('home');
