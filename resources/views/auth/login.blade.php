@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('styles')
+@section('head')
 <style type="text/css">
     html, body {
         height: 100%;
@@ -9,7 +9,7 @@
 
     #app{
         height: 100%;
-        background-image: url({{ asset('images/background_login.jpg') }});
+        background-image: url("{{ asset('images/background_login.jpg') }}");
         background-repeat:no-repeat;
         background-size:cover;
     }

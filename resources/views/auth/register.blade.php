@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('styles')
+@section('head')
 <style type="text/css">
     html, body {
         height: 100%;
