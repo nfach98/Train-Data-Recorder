@@ -30,6 +30,15 @@
         min-width: 50%;
         min-height: 50%;
     }
+
+    .form-icon {
+        float: right;
+        margin-left: -25px;
+        margin-right: .75rem;
+        margin-top: -1.65rem;
+        position: relative;
+        z-index: 2;
+    }
 </style>
 @endsection
 
@@ -65,13 +74,15 @@
 
                             <div class="form-group row mb-2">
                                 <div class="col-12">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  placeholder="Password" data-toggle="password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  placeholder="Password" data-toggle="password" style="padding-right: 3rem">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+
+                                    <span class="fas fa-eye form-icon" id="toggle-password"></span>
                                 </div>
                             </div>
 
@@ -111,4 +122,19 @@
 
     <img class="background" src="{{ asset('images/background_login.jpg') }}">
 </div>
+
+<script type="text/javascript">
+    $("#toggle-password").click(function() {
+
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      var input = $($(this).attr("toggle"));
+      if ($("#password").attr("type") == "password") {
+        $("#password").attr("type", "text");
+        $(this).css("color", "var(--red)");
+      } else {
+        $("#password").attr("type", "password");
+        $(this).css("color", "black");
+      }
+    });
+</script>
 @endsection
