@@ -114,7 +114,12 @@ a:focus{
   height: 100%;
 }
 
-.side-item {
+.side-dropdown-group {
+  display: none;
+}
+
+.side-item,
+.side-dropdown-group {
   width: 100%;
 }
 
@@ -122,6 +127,17 @@ a:focus{
   display: flex;
   align-items: center;
   height: 5rem;
+  color: white;
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: 200ms;
+}
+
+
+.side-sublink {
+  display: flex;
+  align-items: center;
+  height: 3rem;
   color: white;
   text-decoration: none;
   filter: grayscale(100%) opacity(0.7);
@@ -155,7 +171,8 @@ a:focus{
   height: auto;
 }
 
-.side-link:hover {
+.side-link:hover,
+.side-sublink:hover {
   filter: grayscale(100%) opacity(1);
   color: white;
 }
