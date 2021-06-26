@@ -155,12 +155,32 @@
             </a>
           </li>
 
-          <li class="side-item">
-            <a href="{{ url('/monitoring') }}" class="side-link">
+          <li class="side-item side-dropdown">
+            <div class="side-link">
               <i class="fas fa-desktop"></i>
               <span class="link-text">Monitoring</span>
-            </a>
+            </div>
           </li>
+
+          <div class="side-dropdown-group">
+            <div class="side-item">
+              <a href="{{ url('/monitoring') }}" class="side-sublink">
+                <span class="link-text">Motor 1</span>
+              </a>
+            </div>
+
+            <div class="side-item">
+              <a href="{{ url('/monitoring') }}" class="side-sublink">
+                <span class="link-text">Motor Car 1</span>
+              </a>
+            </div>
+
+            <div class="side-item">
+              <a href="{{ url('/monitoring') }}" class="side-sublink">
+                <span class="link-text">Trailer 1</span>
+              </a>
+            </div>
+          </div>
 
           <li class="side-item">
               <a href="{{ url('/location') }}" class="side-link">
@@ -233,9 +253,39 @@
   </main>
 
   <script>
+    var dropdownGroupDisplay = "none";
+
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
+    });
+
+    var dropdown = document.getElementsByClassName("side-dropdown");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownGroupDisplay = "none";
+          dropdownContent.style.display = "none";
+        } 
+        else {
+          dropdownGroupDisplay = "block";
+          dropdownContent.style.display = "block";
+        }
+      });
+    }
+
+    $(".sidebar").mouseleave(function(e) {
+      $(".side-dropdown-group").css("display", "none");
+      console.log("AAA");
+    });
+
+    $(".sidebar").mouseenter(function(e) {
+      $(".side-dropdown-group").css("display", dropdownGroupDisplay);
+      console.log("AAA");
     });
   </script>
 @endsection
