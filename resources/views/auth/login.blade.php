@@ -8,10 +8,27 @@
     }
 
     #app{
-        height: 100%;
-        background-image: url("{{ asset('images/background_login.jpg') }}");
-        background-repeat:no-repeat;
-        background-size:cover;
+        height: 100vh;
+    }
+
+    .background {
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100vw; 
+        height: 100vh;
+        z-index: -1;
+    }
+
+    .background img {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        margin: auto; 
+        min-width: 50%;
+        min-height: 50%;
     }
 </style>
 @endsection
@@ -91,5 +108,7 @@
             </div>
         </div>
     </div>
+
+    <img class="background" src="{{ asset('images/background_login.jpg') }}">
 </div>
 @endsection
