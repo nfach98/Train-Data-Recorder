@@ -270,10 +270,16 @@
         if (dropdownContent.style.display === "block") {
           dropdownGroupDisplay = "none";
           dropdownContent.style.display = "none";
+          if (typeof(Storage) !== "undefined") {
+            sessionStorage.setItem("dropdownGroupDisplay", dropdownGroupDisplay);
+          }
         } 
         else {
           dropdownGroupDisplay = "block";
           dropdownContent.style.display = "block";
+          if (typeof(Storage) !== "undefined") {
+            sessionStorage.setItem("dropdownGroupDisplay", dropdownGroupDisplay);
+          }
         }
       });
     }
@@ -284,7 +290,7 @@
     });
 
     $(".sidebar").mouseenter(function(e) {
-      $(".side-dropdown-group").css("display", dropdownGroupDisplay);
+      $(".side-dropdown-group").css("display", sessionStorage.getItem("dropdownGroupDisplay"));
       console.log("AAA");
     });
   </script>
