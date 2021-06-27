@@ -37,7 +37,45 @@
                       <div class="row no-gutters align-items-top">
                           <div class="col mr-5">
                               <div class="text-xs font-weight-bold text-uppercase mb-1">Kelistrikan</div>
-                              <div class="row">
+
+                              <div class="row w-100 mb-3">
+                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                      <div class="row">
+                                          <div class="chart-volt"></div>
+                                          <div class="w-100 d-flex justify-content-center">Tegangan</div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                      <div class="row">
+                                          <div class="chart-arus"></div>
+                                          <div class="w-100 d-flex justify-content-center">Arus</div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                      <div class="row">
+                                          <div class="chart-frekuensi"></div>
+                                          <div class="w-100 d-flex justify-content-center">Frekuensi</div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                      <div class="row">
+                                          <div class="chart-daya"></div>
+                                          <div class="w-100 d-flex justify-content-center">Daya</div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                      <div class="row">
+                                          <div class="chart-energi"></div>
+                                          <div class="w-100 d-flex justify-content-center">Energi</div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <!-- <div class="row">
                                   <div class="col text-xs">Tegangan</div>
                                   <div class="col-4 text-right">2</div>
                               </div>
@@ -56,7 +94,7 @@
                                <div class="row">
                                   <div class="col text-xs">Energi</div>
                                   <div class="col-4 text-right">2</div>
-                              </div>
+                              </div> -->
                           </div>
                           <div class="col-auto">
                               <i class="fas fa-bolt fa-2x text-gray-300" style="color: var(--red);"></i>
@@ -94,4 +132,75 @@
           </div>
       </div>
   </div>
+
+  <script type="text/javascript">
+    var options = {
+        series: [76],
+        chart: {
+          type: 'radialBar',
+          sparkline: {
+            enabled: true
+          }
+        },
+        colors: ["#DE0618"],
+        plotOptions: {
+          radialBar: {
+            startAngle: -90,
+            endAngle: 90,
+            track: {
+              background: "#e7e7e7",
+              strokeWidth: '100%',
+              margin: 5,
+            },
+            dataLabels: {
+              name: {
+                show: false
+              },
+              value: {
+                offsetY: -2,
+                fontSize: '22px'
+              }
+            }
+          }
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'light',
+            shadeIntensity: 0.2,
+            inverseColors: false,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 50, 100]
+          },
+        },
+        labels: ['Average Results'],
+    };
+
+    var optionsVolt = options;
+    optionsVolt.series = [70];
+    var chartVolt = new ApexCharts(document.querySelector(".chart-volt"), optionsVolt);
+    chartVolt.render();
+
+    var optionsArus = options;
+    optionsArus.series = [80];
+    var chartArus = new ApexCharts(document.querySelector(".chart-arus"), optionsArus);
+    chartArus.render();
+
+    var optionsFrekuensi = options;
+    optionsFrekuensi.series = [80];
+    var chartFrekuensi = new ApexCharts(document.querySelector(".chart-frekuensi"), optionsFrekuensi);
+    chartFrekuensi.render();
+
+    var optionsDaya = options;
+    optionsDaya.series = [80];
+    var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optionsDaya);
+    chartDaya.render();
+
+    var optionsEnergi = options;
+    optionsEnergi.series = [80];
+    var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), optionsEnergi);
+    chartEnergi.render();
+  </script>
+
 @endsection
