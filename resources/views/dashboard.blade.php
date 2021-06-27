@@ -158,7 +158,10 @@
               },
               value: {
                 offsetY: -2,
-                fontSize: '22px'
+                fontSize: '40px',
+                formatter: function (val) {
+                  return val
+                }
               }
             }
           }
