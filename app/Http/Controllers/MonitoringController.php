@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MotorCar;
 
 class MonitoringController extends Controller
 {
@@ -14,5 +15,11 @@ class MonitoringController extends Controller
     public function index()
     {
         return view('monitoring');
+    }
+
+    public function getMotorCar(Request $request){
+    	$motorCar = MotorCar::where(['id_train' => $request->id])
+        ->first();
+        return $motorCar;
     }
 }
