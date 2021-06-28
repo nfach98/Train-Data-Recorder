@@ -40,30 +40,30 @@
 
                               <div class="row w-100 mb-3">
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
-                                      <div class="row">
+                                      <div class="row d-flex flex-column justify-content-center">
                                           <div class="chart-volt"></div>
-                                          <div class="w-100 d-flex justify-content-center">Tegangan (V)</div>
+                                          <div class="d-flex justify-content-center bg-transparent">Tegangan (V)</div>
                                       </div>
                                   </div>
 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
-                                      <div class="row">
+                                      <div class="row d-flex flex-column justify-content-center">
                                           <div class="chart-arus"></div>
-                                          <div class="w-100 d-flex justify-content-center">Arus (A)</div>
+                                          <div class="d-flex justify-content-center bg-transparent">Arus (A)</div>
                                       </div>
                                   </div>
 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
-                                      <div class="row">
+                                      <div class="row d-flex flex-column justify-content-center">
                                           <div class="chart-frekuensi"></div>
-                                          <div class="w-100 d-flex justify-content-center">Frekuensi (Hz)</div>
+                                          <div class="d-flex justify-content-center bg-transparent">Frekuensi (Hz)</div>
                                       </div>
                                   </div>
 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
-                                      <div class="row">
+                                      <div class="row d-flex flex-column justify-content-center">
                                           <div class="chart-daya"></div>
-                                          <div class="w-100 d-flex justify-content-center">Daya (W)</div>
+                                          <div class="d-flex justify-content-center bg-transparent">Daya (W)</div>
                                       </div>
                                   </div>
 
@@ -124,8 +124,8 @@
         colors: ["#DE0618"],
         plotOptions: {
           radialBar: {
-            startAngle: -90,
-            endAngle: 90,
+            startAngle: -105,
+            endAngle: 105,
             track: {
               background: "#e7e7e7",
               strokeWidth: '100%',
