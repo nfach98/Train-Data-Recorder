@@ -12,11 +12,11 @@
         },
         series: [{
           name: 'sales',
-          data: [null,null,null,null,null,null,null,null,125]
+          data: []
         }],
         colors: ['#DE0618'],
         xaxis: {
-          categories: [1991,1992,1993,1994,1995,1996,1997,1998,1999]
+          categories: []
         }
       }
       var chartSlope = new ApexCharts(document.querySelector("#chart-slope"), optionsSlope);
@@ -59,6 +59,35 @@
 
       var chartElectricity = new ApexCharts(document.querySelector("#chart-electricity"), optionsElectricity);
       chartElectricity.render();
+
+      setInterval(function(){
+        $.ajax({
+          url: "/motorcar-all",
+          type: "POST",
+          data: {
+            _token:'{{ csrf_token() }}',
+            id: 1
+          },
+          cache: false,
+          dataType: 'json',
+          success: function(data){
+              console.log(data);
+              var slopes = [];
+
+              data.forEach(function(item, index) {
+                slopes.push(item.kemiringan);
+              });
+
+              chartSlope.updateSeries([{
+                name: 'Kemiringan',
+                data: slopes
+              }]);
+          },
+          error: function(XMLHttpRequest, status, error) { 
+            console.log(error);
+          }
+        });
+      }, 1000);
     }
   </script>
 @endsection
