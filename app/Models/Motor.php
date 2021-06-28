@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Motor extends Model
 {
     use HasFactory;
+    protected $table = "db_motor";
+	public $timestamps = false;
 }
