@@ -135,7 +135,7 @@
 
   <script type="text/javascript">
     var options = {
-        series: [76],
+        series: [0],
         chart: {
           type: 'radialBar',
           sparkline: {
@@ -180,30 +180,68 @@
         labels: ['Average Results'],
     };
 
-    var optionsVolt = options;
-    optionsVolt.series = [70];
-    var chartVolt = new ApexCharts(document.querySelector(".chart-volt"), optionsVolt);
+    var chartVolt = new ApexCharts(document.querySelector(".chart-volt"), options);
     chartVolt.render();
 
-    var optionsArus = options;
-    optionsArus.series = [80];
-    var chartArus = new ApexCharts(document.querySelector(".chart-arus"), optionsArus);
+    var chartArus = new ApexCharts(document.querySelector(".chart-arus"), options);
     chartArus.render();
 
-    var optionsFrekuensi = options;
-    optionsFrekuensi.series = [80];
-    var chartFrekuensi = new ApexCharts(document.querySelector(".chart-frekuensi"), optionsFrekuensi);
+    var chartFrekuensi = new ApexCharts(document.querySelector(".chart-frekuensi"), options);
     chartFrekuensi.render();
 
-    var optionsDaya = options;
-    optionsDaya.series = [80];
-    var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optionsDaya);
+    var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), options);
     chartDaya.render();
 
-    var optionsEnergi = options;
-    optionsEnergi.series = [80];
-    var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), optionsEnergi);
+    var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), options);
     chartEnergi.render();
+
+    $(document).ready(function() {
+      setInterval(function(){
+        $.ajax({
+          url: "/motorcar",
+          type: "POST",
+          data: { 
+            _token:'{{ csrf_token() }}',
+            id: 1
+          },
+          cache: false,
+          dataType: 'json',
+          success: function(data){
+              console.log(data);
+
+              chartArus.updateSeries([data.arus / 10 * 100]);
+
+              // var optionsVolt = options;
+              // optionsVolt.series = [70];
+              // var chartVolt = new ApexCharts(document.querySelector(".chart-volt"), optionsVolt);
+              // chartVolt.render();
+
+              // var optionsArus = options;
+              // optionsArus.series = [data.arus / 10 * 100];
+              // var chartArus = new ApexCharts(document.querySelector(".chart-arus"), optionsArus);
+              // chartArus.render();
+
+              // var optionsFrekuensi = options;
+              // optionsFrekuensi.series = [80];
+              // var chartFrekuensi = new ApexCharts(document.querySelector(".chart-frekuensi"), optionsFrekuensi);
+              // chartFrekuensi.render();
+
+              // var optionsDaya = options;
+              // optionsDaya.series = [80];
+              // var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optionsDaya);
+              // chartDaya.render();
+
+              // var optionsEnergi = options;
+              // optionsEnergi.series = [80];
+              // var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), optionsEnergi);
+              // chartEnergi.render();
+          },
+          error: function(XMLHttpRequest, status, error) { 
+            console.log(error);
+          }
+        });
+      }, 2000);
+    });
   </script>
 
 @endsection
