@@ -74,27 +74,6 @@
                                       </div>
                                   </div>
                               </div>
-
-                              <!-- <div class="row">
-                                  <div class="col text-xs">Tegangan</div>
-                                  <div class="col-4 text-right">2</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col text-xs">Arus</div>
-                                  <div class="col-4 text-right">2</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col text-xs">Frekuensi</div>
-                                  <div class="col-4 text-right">2</div>
-                              </div>
-                               <div class="row">
-                                  <div class="col text-xs">Daya</div>
-                                  <div class="col-4 text-right">2</div>
-                              </div>
-                               <div class="row">
-                                  <div class="col text-xs">Energi</div>
-                                  <div class="col-4 text-right">2</div>
-                              </div> -->
                           </div>
                           <div class="col-auto">
                               <i class="fas fa-bolt fa-2x text-gray-300" style="color: var(--red);"></i>
@@ -180,16 +159,32 @@
         labels: ['Average Results'],
     };
 
-    var chartVolt = new ApexCharts(document.querySelector(".chart-volt"), options);
+    var optVolt = options;
+    optVolt.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
+      return val / 100 * (300 - 200) + 200
+    };
+    var chartVolt = new ApexCharts(document.querySelector(".chart-volt"), optVolt);
     chartVolt.render();
 
-    var chartArus = new ApexCharts(document.querySelector(".chart-arus"), options);
+    var optArus = options;
+    optArus.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
+      return val / 100 * 10
+    };
+    var chartArus = new ApexCharts(document.querySelector(".chart-arus"), optArus);
     chartArus.render();
 
-    var chartFrekuensi = new ApexCharts(document.querySelector(".chart-frekuensi"), options);
+    var optFrekuensi = options;
+    optFrekuensi.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
+      return val / 100 * (60 - 40) + 40
+    };
+    var chartFrekuensi = new ApexCharts(document.querySelector(".chart-frekuensi"), optFrekuensi);
     chartFrekuensi.render();
 
-    var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), options);
+    var optDaya = options;
+    optDaya.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
+      return val / 100 * (50 - 0) + 0
+    };
+    var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optDaya);
     chartDaya.render();
 
     var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), options);
@@ -209,38 +204,16 @@
           success: function(data){
               console.log(data);
 
-              chartArus.updateSeries([data.arus / 10 * 100]);
-
-              // var optionsVolt = options;
-              // optionsVolt.series = [70];
-              // var chartVolt = new ApexCharts(document.querySelector(".chart-volt"), optionsVolt);
-              // chartVolt.render();
-
-              // var optionsArus = options;
-              // optionsArus.series = [data.arus / 10 * 100];
-              // var chartArus = new ApexCharts(document.querySelector(".chart-arus"), optionsArus);
-              // chartArus.render();
-
-              // var optionsFrekuensi = options;
-              // optionsFrekuensi.series = [80];
-              // var chartFrekuensi = new ApexCharts(document.querySelector(".chart-frekuensi"), optionsFrekuensi);
-              // chartFrekuensi.render();
-
-              // var optionsDaya = options;
-              // optionsDaya.series = [80];
-              // var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optionsDaya);
-              // chartDaya.render();
-
-              // var optionsEnergi = options;
-              // optionsEnergi.series = [80];
-              // var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), optionsEnergi);
-              // chartEnergi.render();
+              chartVolt.updateSeries([(data.tegangan - 200) / (300 - 200) * 100]);
+              chartArus.updateSeries([(data.arus - 0) / (10 - 0) * 100]);
+              chartFrekuensi.updateSeries([(data.frekuensi - 40) / (60 - 40) * 100]);
+              chartDaya.updateSeries([(data.daya - 0) / (50 - 0) * 100]);
           },
           error: function(XMLHttpRequest, status, error) { 
             console.log(error);
           }
         });
-      }, 2000);
+      }, 1000);
     });
   </script>
 
