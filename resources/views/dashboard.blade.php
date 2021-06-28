@@ -42,37 +42,37 @@
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
                                       <div class="row">
                                           <div class="chart-volt"></div>
-                                          <div class="w-100 d-flex justify-content-center">Tegangan</div>
+                                          <div class="w-100 d-flex justify-content-center">Tegangan (V)</div>
                                       </div>
                                   </div>
 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
                                       <div class="row">
                                           <div class="chart-arus"></div>
-                                          <div class="w-100 d-flex justify-content-center">Arus</div>
+                                          <div class="w-100 d-flex justify-content-center">Arus (A)</div>
                                       </div>
                                   </div>
 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
                                       <div class="row">
                                           <div class="chart-frekuensi"></div>
-                                          <div class="w-100 d-flex justify-content-center">Frekuensi</div>
+                                          <div class="w-100 d-flex justify-content-center">Frekuensi (Hz)</div>
                                       </div>
                                   </div>
 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
                                       <div class="row">
                                           <div class="chart-daya"></div>
-                                          <div class="w-100 d-flex justify-content-center">Daya</div>
+                                          <div class="w-100 d-flex justify-content-center">Daya (W)</div>
                                       </div>
                                   </div>
 
-                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                  <!-- <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
                                       <div class="row">
                                           <div class="chart-energi"></div>
                                           <div class="w-100 d-flex justify-content-center">Energi</div>
                                       </div>
-                                  </div>
+                                  </div> -->
                               </div>
                           </div>
                           <div class="col-auto">
@@ -187,8 +187,8 @@
     var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optDaya);
     chartDaya.render();
 
-    var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), options);
-    chartEnergi.render();
+    // var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), options);
+    // chartEnergi.render();
 
     $(document).ready(function() {
       setInterval(function(){
