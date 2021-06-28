@@ -29,3 +29,6 @@ Route::post('/sender', function() {
 });
 
 Route::post('/motorcar', [App\Http\Controllers\MonitoringController::class, 'getMotorCar']);
+Route::post('/motorcar-all', [App\Http\Controllers\MonitoringController::class, 'getAllMotorCar']);
+Route::post('/motor', [App\Http\Controllers\MonitoringController::class, 'getMotor']);
+Route::post('/trailer', [App\Http\Controllers\MonitoringController::class, 'getTrailer']);
