@@ -27,3 +27,5 @@ Route::post('/sender', function() {
 
 	return redirect()->to('/sender');
 });
+
+Route::post('/motorcar', [App\Http\Controllers\MonitoringController::class, 'getMotorCar']);
