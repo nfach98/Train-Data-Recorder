@@ -204,6 +204,7 @@
           </div>
       </div>
 
+      @if ($type == "motor-car")
       <div class="col-12 mb-4">
           <div class="card shadow h-100 py-2">
               <div class="card-body">
@@ -220,5 +221,6 @@
               </div>
           </div>
       </div>
+      @endif
   </div>
 @endsection

@@ -164,20 +164,20 @@
 
           <div class="side-dropdown-group">
             <div class="side-item">
-              <a href="{{ url('/monitoring') }}" class="side-sublink">
-                <span class="link-text">Motor 1</span>
+              <a href="{{ url('/monitoring/motor') }}" class="side-sublink">
+                <span class="link-text">Motor {{ Auth::user()->id_train }}</span>
               </a>
             </div>
 
             <div class="side-item">
-              <a href="{{ url('/monitoring') }}" class="side-sublink">
-                <span class="link-text">Motor Car 1</span>
+              <a href="{{ url('/monitoring/motor-car') }}" class="side-sublink">
+                <span class="link-text">Motor Car {{ Auth::user()->id_train }}</span>
               </a>
             </div>
 
             <div class="side-item">
-              <a href="{{ url('/monitoring') }}" class="side-sublink">
-                <span class="link-text">Trailer 1</span>
+              <a href="{{ url('/monitoring/trailer') }}" class="side-sublink">
+                <span class="link-text">Trailer {{ Auth::user()->id_train }}</span>
               </a>
             </div>
           </div>

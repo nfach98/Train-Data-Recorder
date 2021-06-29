@@ -14,9 +14,9 @@ class MonitoringController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index($type)
     {
-        return view('monitoring');
+        return view('monitoring', ["type" => $type]);
     }
 
     public function getMotorCar(Request $request){
@@ -28,20 +28,21 @@ class MonitoringController extends Controller
 
     public function getAllMotorCar(Request $request){
         $data = MotorCar::where(['id_train' => $request->id])
-        ->orderBy('id', 'ASC')
-        ->limit(10)
+        ->limit(100)
         ->get();
         return $data;
     }
 
     public function getMotor(Request $request){
         $data = Motor::where(['id_train' => $request->id])
+        ->orderBy('id', 'DESC')
         ->first();
         return $data;
     }
 
     public function getTrailer(Request $request){
         $data = Trailer::where(['id_train' => $request->id])
+        ->orderBy('id', 'DESC')
         ->first();
         return $data;
     }
