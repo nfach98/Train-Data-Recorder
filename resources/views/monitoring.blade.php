@@ -88,8 +88,10 @@
               var daya = [];
               var energi = [];
 
+              var dateOptions = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
               data.forEach(function(item, index) {
-                dates.push(item.time);
+                const date = new Date(item.time);
+                dates.push(date.toLocaleDateString("id-ID", dateOptions));
 
                 slopes.push(item.kemiringan);
                 temperatures.push(item.suhu_bearing);
@@ -100,6 +102,7 @@
                 daya.push(item.daya);
                 energi.push(item.energi);
               });
+
 
               chartSlope.updateSeries([{
                 name: 'Kemiringan',
@@ -112,10 +115,18 @@
                 }
               });
 
+
               chartTemperature.updateSeries([{
                 name: 'Temperatur Bearing',
                 data: temperatures
               }]);
+
+              chartTemperature.updateOptions({
+                xaxis: {
+                  categories: dates
+                }
+              });
+
 
               chartElectricity.updateSeries([{
                 name: 'Tegangan',
@@ -137,6 +148,12 @@
                 name: 'Energi',
                 data: energi
               }]);
+
+              chartElectricity.updateOptions({
+                xaxis: {
+                  categories: dates
+                }
+              });
           },
           error: function(XMLHttpRequest, status, error) { 
             console.log(error);

@@ -28,7 +28,7 @@ class MonitoringController extends Controller
 
     public function getAllMotorCar(Request $request){
         $data = MotorCar::where(['id_train' => $request->id])
-        ->orderBy('id', 'DESC')
+        ->orderBy('id', 'ASC')
         ->limit(10)
         ->get();
         return $data;
