@@ -202,8 +202,6 @@
           cache: false,
           dataType: 'json',
           success: function(data){
-              console.log(data);
-
               chartVolt.updateSeries([(data.tegangan - 200) / (300 - 200) * 100]);
               chartArus.updateSeries([(data.arus - 0) / (10 - 0) * 100]);
               chartFrekuensi.updateSeries([(data.frekuensi - 40) / (60 - 40) * 100]);

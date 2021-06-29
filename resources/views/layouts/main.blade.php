@@ -255,11 +255,6 @@
   <script>
     var dropdownGroupDisplay = "none";
 
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-
     var dropdown = document.getElementsByClassName("side-dropdown");
     var i;
 
@@ -285,13 +280,15 @@
     }
 
     $(".sidebar").mouseleave(function(e) {
-      $(".side-dropdown-group").css("display", "none");
-      console.log("AAA");
+      if(window.matchMedia("(min-width: 600px)").matches){
+        $(".side-dropdown-group").css("display", "none");
+      }
     });
 
     $(".sidebar").mouseenter(function(e) {
-      $(".side-dropdown-group").css("display", sessionStorage.getItem("dropdownGroupDisplay"));
-      console.log("AAA");
+      if(window.matchMedia("(min-width: 600px)").matches){
+        $(".side-dropdown-group").css("display", sessionStorage.getItem("dropdownGroupDisplay"));
+      }
     });
   </script>
 @endsection
