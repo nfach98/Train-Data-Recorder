@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Train;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -13,6 +15,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('dashboard');
+    	$train = Train::find(Auth::user()->id_train);
+        return view('dashboard', ["train" => $train]);
     }
 }
