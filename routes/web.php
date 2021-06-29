@@ -5,7 +5,7 @@ use App\Events\FormSubmitted;
 
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
 
-Route::get('/monitoring', [App\Http\Controllers\MonitoringController::class, 'index']);
+Route::get('/monitoring/{type}', [App\Http\Controllers\MonitoringController::class, 'index']);
 
 Route::get('/location', [App\Http\Controllers\LocationController::class, 'index']);
 
