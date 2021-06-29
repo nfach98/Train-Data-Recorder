@@ -6,6 +6,11 @@
       // Kemiringan
       var optionsSlope = {
         chart: {
+          animations: {
+            enabled: true,
+            easing: 'linear',
+            speed: 500,
+        },
           type: 'line',
           height: '300',
           fontFamily: 'Ubuntu, sans-serif',
@@ -49,7 +54,7 @@
         },
         series: [{
           name: 'sales',
-          data: [null,null,null,null,null,null,null,null,125]
+          data: [null,null,null,null,null,null,null,null,null]
         }],
         colors: ['#DE0618'],
         xaxis: {
@@ -72,15 +77,65 @@
           dataType: 'json',
           success: function(data){
               console.log(data);
+              var dates = [];
+
               var slopes = [];
+              var temperatures = [];
+
+              var tegangan = [];
+              var arus = [];
+              var frekuensi = [];
+              var daya = [];
+              var energi = [];
 
               data.forEach(function(item, index) {
+                dates.push(item.time);
+
                 slopes.push(item.kemiringan);
+                temperatures.push(item.suhu_bearing);
+
+                tegangan.push(item.tegangan);
+                arus.push(item.arus);                
+                frekuensi.push(item.frekuensi);
+                daya.push(item.daya);
+                energi.push(item.energi);
               });
 
               chartSlope.updateSeries([{
                 name: 'Kemiringan',
                 data: slopes
+              }]);
+
+              chartSlope.updateOptions({
+                xaxis: {
+                  categories: dates
+                }
+              });
+
+              chartTemperature.updateSeries([{
+                name: 'Temperatur Bearing',
+                data: temperatures
+              }]);
+
+              chartElectricity.updateSeries([{
+                name: 'Tegangan',
+                data: tegangan
+              },
+              {
+                name: 'Arus',
+                data: arus
+              },
+              {
+                name: 'Frekuensi',
+                data: frekuensi
+              },
+              {
+                name: 'Daya',
+                data: daya
+              },
+              {
+                name: 'Energi',
+                data: energi
               }]);
           },
           error: function(XMLHttpRequest, status, error) { 
