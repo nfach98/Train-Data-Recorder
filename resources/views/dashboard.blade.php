@@ -16,11 +16,11 @@
                               <div class="text-xs font-weight-bold text-uppercase mb-1">Info Kereta</div>
                               <div class="row">
                                   <div class="col text-xs">Nama</div>
-                                  <div class="col-4 text-right">2</div>
+                                  <div class="col-4 text-right">{{ $train->nama }}</div>
                               </div>
                               <div class="row">
                                   <div class="col text-xs">ID</div>
-                                  <div class="col-4 text-right">2</div>
+                                  <div class="col-4 text-right">{{ $train->id }}</div>
                               </div>
                           </div>
                           <div class="col-auto">
@@ -91,15 +91,15 @@
                               <div class="text-xs font-weight-bold text-uppercase mb-1">Lokasi</div>
                               <div class="row">
                                   <div class="col text-xs">Latitude</div>
-                                  <div class="col-4 text-right">2</div>
+                                  <div id="text-lat" class="col-4 text-right"></div>
                               </div>
                               <div class="row">
                                   <div class="col text-xs">Longitude</div>
-                                  <div class="col-4 text-right">2</div>
+                                  <div id="text-lng" class="col-4 text-right"></div>
                               </div>
                               <div class="row">
                                   <div class="col text-xs">Kecepatan</div>
-                                  <div class="col-4 text-right">2</div>
+                                  <div class="col-4 text-right"></div>
                               </div>
                           </div>
                           <div class="col-auto">
@@ -208,6 +208,14 @@
               chartArus.updateSeries([(data.arus - 0) / (10 - 0) * 100]);
               chartFrekuensi.updateSeries([(data.frekuensi - 40) / (60 - 40) * 100]);
               chartDaya.updateSeries([(data.daya - 0) / (50 - 0) * 100]);
+
+              $("#text-lat").html(function(i, original){
+                return data.latitude; 
+              });
+
+              $("#text-lng").html(function(i, original){
+                return data.longitude; 
+              });
           },
           error: function(XMLHttpRequest, status, error) { 
             console.log(error);
