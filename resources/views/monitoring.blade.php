@@ -34,7 +34,7 @@
         }],
         colors: ['#DE0618'],
         xaxis: {
-          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+          categories: [1991,1992,1993,1994,1995,1996,1997,1998,1999]
         }
       }
       var chartTemperature = new ApexCharts(document.querySelector("#chart-temperature"), optionsTemperature);
