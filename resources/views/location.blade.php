@@ -89,7 +89,7 @@
                 'type': 'symbol',
                 'source': 'train',
                 'layout': {
-                'icon-image': 'rocket-15'
+                  'icon-image': 'rocket-15'
                 }
               });
             });
