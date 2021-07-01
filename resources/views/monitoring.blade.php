@@ -62,8 +62,20 @@
         }
       }
 
-      var chartElectricity = new ApexCharts(document.querySelector("#chart-electricity"), optionsElectricity);
-      chartElectricity.render();
+      var chartLineVolt = new ApexCharts(document.querySelector("#chart-line-volt"), optionsElectricity);
+      chartLineVolt.render();
+
+      var chartLineArus = new ApexCharts(document.querySelector("#chart-line-arus"), optionsElectricity);
+      chartLineArus.render();
+
+      var chartLineFrekuensi = new ApexCharts(document.querySelector("#chart-line-frekuensi"), optionsElectricity);
+      chartLineFrekuensi.render();
+
+      var chartLineDaya = new ApexCharts(document.querySelector("#chart-line-daya"), optionsElectricity);
+      chartLineDaya.render();
+
+      var chartLineEnergi = new ApexCharts(document.querySelector("#chart-line-energi"), optionsElectricity);
+      chartLineEnergi.render();
 
       setInterval(function(){
         $.ajax({
@@ -71,7 +83,7 @@
           type: "POST",
           data: {
             _token:'{{ csrf_token() }}',
-            id: 1
+            id: {!! Auth::user()->id_train !!}
           },
           cache: false,
           dataType: 'json',
@@ -128,28 +140,56 @@
               });
 
 
-              chartElectricity.updateSeries([{
+              chartLineVolt.updateSeries([{
                 name: 'Tegangan',
                 data: tegangan
-              },
-              {
+              }]);
+
+              chartLineVolt.updateOptions({
+                xaxis: {
+                  categories: dates
+                }
+              });
+
+              chartLineArus.updateSeries([{
                 name: 'Arus',
                 data: arus
-              },
-              {
+              }]);
+
+              chartLineArus.updateOptions({
+                xaxis: {
+                  categories: dates
+                }
+              });
+
+              chartLineFrekuensi.updateSeries([{
                 name: 'Frekuensi',
                 data: frekuensi
-              },
-              {
+              }]);
+
+              chartLineFrekuensi.updateOptions({
+                xaxis: {
+                  categories: dates
+                }
+              });
+
+              chartLineDaya.updateSeries([{
                 name: 'Daya',
                 data: daya
-              },
-              {
+              }]);
+
+              chartLineDaya.updateOptions({
+                xaxis: {
+                  categories: dates
+                }
+              });
+
+              chartLineEnergi.updateSeries([{
                 name: 'Energi',
                 data: energi
               }]);
 
-              chartElectricity.updateOptions({
+              chartLineEnergi.updateOptions({
                 xaxis: {
                   categories: dates
                 }
@@ -217,7 +257,20 @@
                       </div>
                   </div>
 
-                  <div id="chart-electricity" style="width: 100%;"></div>
+                  <div class="w-100 d-flex justify-content-center">Tegangan</div>
+                  <div id="chart-line-volt" class="w-100 mb-5"></div>
+
+                  <div class="w-100 d-flex justify-content-center">Arus</div>
+                  <div id="chart-line-arus" class="w-100 mb-5"></div>
+
+                  <div class="w-100 d-flex justify-content-center">Frekuensi</div>
+                  <div id="chart-line-frekuensi" class="w-100 mb-5"></div>
+
+                  <div class="w-100 d-flex justify-content-center">Daya</div>
+                  <div id="chart-line-daya" class="w-100 mb-5"></div>
+
+                  <div class="w-100 d-flex justify-content-center">Energi</div>
+                  <div id="chart-line-energi" class="w-100 mb-5"></div>
               </div>
           </div>
       </div>
