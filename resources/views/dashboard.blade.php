@@ -197,7 +197,7 @@
           type: "POST",
           data: { 
             _token:'{{ csrf_token() }}',
-            id: 1
+            id: {!! Auth::user()->id_train !!}
           },
           cache: false,
           dataType: 'json',
