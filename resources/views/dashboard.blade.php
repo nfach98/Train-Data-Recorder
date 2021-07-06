@@ -67,12 +67,12 @@
                                       </div>
                                   </div>
 
-                                  <!-- <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
                                       <div class="row">
                                           <div class="chart-energi"></div>
-                                          <div class="w-100 d-flex justify-content-center">Energi</div>
+                                          <div class="w-100 d-flex justify-content-center">Energi (kWh)</div>
                                       </div>
-                                  </div> -->
+                                  </div>
                               </div>
                           </div>
                           <div class="col-auto">
@@ -187,8 +187,12 @@
     var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optDaya);
     chartDaya.render();
 
-    // var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), options);
-    // chartEnergi.render();
+    var optEnergi = options;
+    optEnergi.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
+      return val / 100 * (10 - 0) + 0
+    };
+    var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), optEnergi);
+    chartEnergi.render();
 
     $(document).ready(function() {
       setInterval(function(){
@@ -206,6 +210,7 @@
               chartArus.updateSeries([(data.arus - 0) / (10 - 0) * 100]);
               chartFrekuensi.updateSeries([(data.frekuensi - 40) / (60 - 40) * 100]);
               chartDaya.updateSeries([(data.daya - 0) / (50 - 0) * 100]);
+              chartEnergi.updateSeries([(data.energi - 0) / (10 - 0) * 100]);
 
               $("#text-lat").html(function(i, original){
                 return data.latitude; 
