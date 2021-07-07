@@ -74,19 +74,29 @@
       }
 
       if(type == "motorcar") {
-         var chartLineVolt = new ApexCharts(document.querySelector("#chart-line-volt"), optionsElectricity);
+        var optionsVolt = Object.assign({}, optionsElectricity);
+        optionsVolt.colors = ['#17eb6f'];
+        var chartLineVolt = new ApexCharts(document.querySelector("#chart-line-volt"), optionsVolt);
         chartLineVolt.render();
 
-        var chartLineArus = new ApexCharts(document.querySelector("#chart-line-arus"), optionsElectricity);
+        var optionsArus = Object.assign({}, optionsElectricity);
+        optionsArus.colors = ['#36e2f5'];
+        var chartLineArus = new ApexCharts(document.querySelector("#chart-line-arus"), optionsArus);
         chartLineArus.render();
 
-        var chartLineFrekuensi = new ApexCharts(document.querySelector("#chart-line-frekuensi"), optionsElectricity);
+        var optionsFrekuensi = Object.assign({}, optionsElectricity);
+        optionsFrekuensi.colors = ['#ffbb00'];
+        var chartLineFrekuensi = new ApexCharts(document.querySelector("#chart-line-frekuensi"), optionsFrekuensi);
         chartLineFrekuensi.render();
 
-        var chartLineDaya = new ApexCharts(document.querySelector("#chart-line-daya"), optionsElectricity);
+        var optionsDaya = Object.assign({}, optionsElectricity);
+        optionsDaya.colors = ['#171be8'];
+        var chartLineDaya = new ApexCharts(document.querySelector("#chart-line-daya"), optionsDaya);
         chartLineDaya.render();
 
-        var chartLineEnergi = new ApexCharts(document.querySelector("#chart-line-energi"), optionsElectricity);
+        var optionsEnergi = Object.assign({}, optionsElectricity);
+        optionsEnergi.colors = ['#fa28c2'];
+        var chartLineEnergi = new ApexCharts(document.querySelector("#chart-line-energi"), optionsEnergi);
         chartLineEnergi.render();
       }
 
