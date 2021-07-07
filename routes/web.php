@@ -28,7 +28,7 @@ Route::post('/sender', function() {
 	return redirect()->to('/sender');
 });
 
-Route::post('/motorcar', [App\Http\Controllers\MonitoringController::class, 'getMotorCar']);
-Route::post('/motorcar-all', [App\Http\Controllers\MonitoringController::class, 'getAllMotorCar']);
-Route::post('/motor', [App\Http\Controllers\MonitoringController::class, 'getMotor']);
-Route::post('/trailer', [App\Http\Controllers\MonitoringController::class, 'getTrailer']);
+Route::get('/motorcar', [App\Http\Controllers\MonitoringController::class, 'getMotorCar']);
+Route::get('/motorcar-all', [App\Http\Controllers\MonitoringController::class, 'getAllMotorCar']);
+Route::get('/motor', [App\Http\Controllers\MonitoringController::class, 'getMotor']);
+Route::get('/trailer', [App\Http\Controllers\MonitoringController::class, 'getTrailer']);

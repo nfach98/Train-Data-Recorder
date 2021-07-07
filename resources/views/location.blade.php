@@ -7,7 +7,7 @@
 
         $.ajax({
           url: "/motorcar",
-          type: "POST",
+          type: "GET",
           data: {
             _token:'{{ csrf_token() }}',
             id: {!! Auth::user()->id_train !!}
@@ -36,7 +36,7 @@
               setInterval( function() {
                 $.ajax({
                   url: "/motorcar",
-                  type: "POST",
+                  type: "GET",
                   data: {
                     _token:'{{ csrf_token() }}',
                     id: 1
