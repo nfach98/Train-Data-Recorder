@@ -35,15 +35,15 @@ class MonitoringController extends Controller
 
     public function getMotor(Request $request){
         $data = Motor::where(['id_train' => $request->id])
-        ->orderBy('id', 'DESC')
-        ->first();
+        ->limit(100)
+        ->get();
         return $data;
     }
 
     public function getTrailer(Request $request){
         $data = Trailer::where(['id_train' => $request->id])
-        ->orderBy('id', 'DESC')
-        ->first();
+        ->limit(100)
+        ->get();
         return $data;
     }
 }
