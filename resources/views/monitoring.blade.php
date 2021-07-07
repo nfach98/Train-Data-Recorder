@@ -62,24 +62,37 @@
         }
       }
 
-      var chartLineVolt = new ApexCharts(document.querySelector("#chart-line-volt"), optionsElectricity);
-      chartLineVolt.render();
+      var url = "";
+      var type = "{!! str_replace("-", "", $type) !!}";
+      console.log(type);
 
-      var chartLineArus = new ApexCharts(document.querySelector("#chart-line-arus"), optionsElectricity);
-      chartLineArus.render();
+      if(type == "motorcar") {
+        url = "/motorcar-all";
+      }
+      else {
+        url = "/" + type;
+      }
 
-      var chartLineFrekuensi = new ApexCharts(document.querySelector("#chart-line-frekuensi"), optionsElectricity);
-      chartLineFrekuensi.render();
+      if(type == "motorcar") {
+         var chartLineVolt = new ApexCharts(document.querySelector("#chart-line-volt"), optionsElectricity);
+        chartLineVolt.render();
 
-      var chartLineDaya = new ApexCharts(document.querySelector("#chart-line-daya"), optionsElectricity);
-      chartLineDaya.render();
+        var chartLineArus = new ApexCharts(document.querySelector("#chart-line-arus"), optionsElectricity);
+        chartLineArus.render();
 
-      var chartLineEnergi = new ApexCharts(document.querySelector("#chart-line-energi"), optionsElectricity);
-      chartLineEnergi.render();
+        var chartLineFrekuensi = new ApexCharts(document.querySelector("#chart-line-frekuensi"), optionsElectricity);
+        chartLineFrekuensi.render();
+
+        var chartLineDaya = new ApexCharts(document.querySelector("#chart-line-daya"), optionsElectricity);
+        chartLineDaya.render();
+
+        var chartLineEnergi = new ApexCharts(document.querySelector("#chart-line-energi"), optionsElectricity);
+        chartLineEnergi.render();
+      }
 
       setInterval(function(){
         $.ajax({
-          url: "/motorcar-all",
+          url: url,
           type: "POST",
           data: {
             _token:'{{ csrf_token() }}',
@@ -139,61 +152,62 @@
                 }
               });
 
+              if(type == "motorcar"){
+                chartLineVolt.updateSeries([{
+                  name: 'Tegangan',
+                  data: tegangan
+                }]);
 
-              chartLineVolt.updateSeries([{
-                name: 'Tegangan',
-                data: tegangan
-              }]);
+                chartLineVolt.updateOptions({
+                  xaxis: {
+                    categories: dates
+                  }
+                });
 
-              chartLineVolt.updateOptions({
-                xaxis: {
-                  categories: dates
-                }
-              });
+                chartLineArus.updateSeries([{
+                  name: 'Arus',
+                  data: arus
+                }]);
 
-              chartLineArus.updateSeries([{
-                name: 'Arus',
-                data: arus
-              }]);
+                chartLineArus.updateOptions({
+                  xaxis: {
+                    categories: dates
+                  }
+                });
 
-              chartLineArus.updateOptions({
-                xaxis: {
-                  categories: dates
-                }
-              });
+                chartLineFrekuensi.updateSeries([{
+                  name: 'Frekuensi',
+                  data: frekuensi
+                }]);
 
-              chartLineFrekuensi.updateSeries([{
-                name: 'Frekuensi',
-                data: frekuensi
-              }]);
+                chartLineFrekuensi.updateOptions({
+                  xaxis: {
+                    categories: dates
+                  }
+                });
 
-              chartLineFrekuensi.updateOptions({
-                xaxis: {
-                  categories: dates
-                }
-              });
+                chartLineDaya.updateSeries([{
+                  name: 'Daya',
+                  data: daya
+                }]);
 
-              chartLineDaya.updateSeries([{
-                name: 'Daya',
-                data: daya
-              }]);
+                chartLineDaya.updateOptions({
+                  xaxis: {
+                    categories: dates
+                  }
+                });
 
-              chartLineDaya.updateOptions({
-                xaxis: {
-                  categories: dates
-                }
-              });
+                chartLineEnergi.updateSeries([{
+                  name: 'Energi',
+                  data: energi
+                }]);
 
-              chartLineEnergi.updateSeries([{
-                name: 'Energi',
-                data: energi
-              }]);
-
-              chartLineEnergi.updateOptions({
-                xaxis: {
-                  categories: dates
-                }
-              });
+                chartLineEnergi.updateOptions({
+                  xaxis: {
+                    categories: dates
+                  }
+                });
+              }
           },
           error: function(XMLHttpRequest, status, error) { 
             console.log(error);
