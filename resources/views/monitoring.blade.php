@@ -90,7 +90,7 @@
         chartLineFrekuensi.render();
 
         var optionsDaya = Object.assign({}, optionsElectricity);
-        optionsDaya.colors = ['#171be8'];
+        optionsDaya.colors = ['#000000'];
         var chartLineDaya = new ApexCharts(document.querySelector("#chart-line-daya"), optionsDaya);
         chartLineDaya.render();
 
