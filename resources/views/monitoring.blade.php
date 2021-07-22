@@ -74,6 +74,29 @@
       }
 
       if(type == "motorcar") {
+        var optionsSpeed = {
+          chart: {
+            animations: {
+              enabled: true,
+              easing: 'linear',
+              speed: 500,
+          },
+            type: 'line',
+            height: '300',
+            fontFamily: 'Ubuntu, sans-serif',
+          },
+          series: [{
+            name: 'sales',
+            data: []
+          }],
+          colors: ['#DE0618'],
+          xaxis: {
+            categories: []
+          }
+        }
+        var chartSpeed = new ApexCharts(document.querySelector("#chart-speed"), optionsSpeed);
+        chartSpeed.render();
+
         var optionsVolt = Object.assign({}, optionsElectricity);
         optionsVolt.colors = ['#17eb6f'];
         var chartLineVolt = new ApexCharts(document.querySelector("#chart-line-volt"), optionsVolt);
@@ -117,6 +140,8 @@
               var slopes = [];
               var temperatures = [];
 
+              var kecepatan = [];
+
               var tegangan = [];
               var arus = [];
               var frekuensi = [];
@@ -130,6 +155,8 @@
 
                 slopes.push(item.kemiringan);
                 temperatures.push(item.suhu_bearing);
+
+                kecepatan.push(item.kecepatan);
 
                 tegangan.push(item.tegangan);
                 arus.push(item.arus);                
@@ -163,6 +190,17 @@
               });
 
               if(type == "motorcar"){
+                chartSpeed.updateSeries([{
+                  name: 'Kecepatan',
+                  data: tegangan
+                }]);
+
+                chartSpeed.updateOptions({
+                  xaxis: {
+                    categories: dates
+                  }
+                });
+
                 chartLineVolt.updateSeries([{
                   name: 'Tegangan',
                   data: tegangan
@@ -269,6 +307,23 @@
       </div>
 
       @if ($type == "motor-car")
+      <div class="col-12 mb-4">
+          <div class="card shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row align-items-top mb-3">
+                      <div class="col mr-5">
+                          <div class="text-xs font-weight-bold text-uppercase mb-1">Kecepatan</div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-tachometer-alt fa-2x text-gray-300" style="color: var(--red);"></i>
+                      </div>
+                  </div>
+
+                  <div id="chart-speed" style="width: 100%;"></div>
+              </div>
+          </div>
+      </div>
+
       <div class="col-12 mb-4">
           <div class="card shadow h-100 py-2">
               <div class="card-body">
