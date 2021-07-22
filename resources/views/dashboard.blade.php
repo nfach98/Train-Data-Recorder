@@ -1,10 +1,10 @@
 @extends('layouts.main')
 
 @section('page')
-  <div class="container-fluid">
+  <div class="container-fluid py-3">
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          <a href="{{ URL::to('/report') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Cetak Laporan</a>
       </div>
 
       <div class="row">
@@ -68,9 +68,9 @@
                                   </div>
 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
-                                      <div class="row">
+                                      <div class="row d-flex flex-column justify-content-center">
                                           <div class="chart-energi"></div>
-                                          <div class="w-100 d-flex justify-content-center">Energi (kWh)</div>
+                                          <div class="d-flex justify-content-center bg-transparent">Energi (kWh)</div>
                                       </div>
                                   </div>
                               </div>
@@ -89,6 +89,16 @@
                       <div class="row no-gutters align-items-top">
                           <div class="col mr-5">
                               <div class="text-xs font-weight-bold text-uppercase mb-1">Lokasi</div>
+
+                              <div class="row w-100 mb-3 justify-content-center">
+                                  <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
+                                      <div class="row d-flex flex-column justify-content-center">
+                                          <div class="chart-speed"></div>
+                                          <div class="d-flex justify-content-center bg-transparent">Kecepatan (km/jam)</div>
+                                      </div>
+                                  </div>
+                              </div>
+
                               <div class="row">
                                   <div class="col text-xs">Latitude</div>
                                   <div id="text-lat" class="col-4 text-right"></div>
@@ -97,10 +107,10 @@
                                   <div class="col text-xs">Longitude</div>
                                   <div id="text-lng" class="col-4 text-right"></div>
                               </div>
-                              <div class="row">
+                              <!-- <div class="row">
                                   <div class="col text-xs">Kecepatan</div>
                                   <div class="col-4 text-right"></div>
-                              </div>
+                              </div> -->
                           </div>
                           <div class="col-auto">
                               <i class="fas fa-map-marker-alt fa-2x text-gray-300" style="color: var(--red);"></i>
@@ -194,6 +204,13 @@
     var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), optEnergi);
     chartEnergi.render();
 
+    var optKecepatan = options;
+    optKecepatan.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
+      return val / 100 * (10 - 0) + 0
+    };
+    var chartKecepatan = new ApexCharts(document.querySelector(".chart-speed"), optKecepatan);
+    chartKecepatan.render();
+
     $(document).ready(function() {
       setInterval(function(){
         $.ajax({
@@ -211,6 +228,7 @@
               chartFrekuensi.updateSeries([(data.frekuensi - 40) / (60 - 40) * 100]);
               chartDaya.updateSeries([(data.daya - 0) / (50 - 0) * 100]);
               chartEnergi.updateSeries([(data.energi - 0) / (10 - 0) * 100]);
+              chartKecepatan.updateSeries([(data.kecepatan - 0) / (10 - 0) * 100]);
 
               $("#text-lat").html(function(i, original){
                 return data.latitude; 
