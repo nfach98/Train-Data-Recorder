@@ -20,8 +20,14 @@ class MonitoringController extends Controller
     }
 
     public function getMotorCar(Request $request){
-    	$data = MotorCar::where(['id_train' => $request->id])
-        ->orderBy('id', 'DESC')
+    	// $data = MotorCar::where(['id_train' => $request->id])
+     //    ->orderBy('id', 'DESC')
+     //    ->first();
+     //    return $data;
+
+        $data = MotorCar::join('train', 'train.id', '=', 'db_motorcar.id_train')
+        ->where(['db_motorcar.id_train' => $request->id])
+        ->orderBy('db_motorcar.id', 'DESC')
         ->first();
         return $data;
     }
