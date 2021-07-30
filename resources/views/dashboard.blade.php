@@ -223,6 +223,7 @@
           cache: false,
           dataType: 'json',
           success: function(data){
+            if(data !== null){
               chartVolt.updateSeries([(data.tegangan - 200) / (300 - 200) * 100]);
               chartArus.updateSeries([(data.arus - 0) / (10 - 0) * 100]);
               chartFrekuensi.updateSeries([(data.frekuensi - 40) / (60 - 40) * 100]);
@@ -237,6 +238,7 @@
               $("#text-lng").html(function(i, original){
                 return data.longitude; 
               });
+            }
           },
           error: function(XMLHttpRequest, status, error) { 
             console.log(error);
