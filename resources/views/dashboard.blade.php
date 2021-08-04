@@ -4,7 +4,7 @@
   <div class="container-fluid py-3">
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          <a href="{{ URL::to('/report') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Cetak Laporan</a>
+          <a href="{{ URL::to('/report') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm"></i> Cetak Laporan</a>
       </div>
 
       <div class="row">
@@ -66,13 +66,13 @@
                                           <div class="d-flex justify-content-center bg-transparent">Daya (W)</div>
                                       </div>
                                   </div>
-
+<!-- 
                                   <div class="col-xl-4 col-md-6 col-sm-12 mb-1">
                                       <div class="row d-flex flex-column justify-content-center">
                                           <div class="chart-energi"></div>
                                           <div class="d-flex justify-content-center bg-transparent">Energi (kWh)</div>
                                       </div>
-                                  </div>
+                                  </div> -->
                               </div>
                           </div>
                           <div class="col-auto">
@@ -197,12 +197,12 @@
     var chartDaya = new ApexCharts(document.querySelector(".chart-daya"), optDaya);
     chartDaya.render();
 
-    var optEnergi = options;
+    /*var optEnergi = options;
     optEnergi.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
       return val / 100 * (10 - 0) + 0
     };
     var chartEnergi = new ApexCharts(document.querySelector(".chart-energi"), optEnergi);
-    chartEnergi.render();
+    chartEnergi.render();*/
 
     var optKecepatan = options;
     optKecepatan.plotOptions.radialBar.dataLabels.value.formatter =  function (val) {
@@ -228,7 +228,7 @@
               chartArus.updateSeries([(data.arus - 0) / (10 - 0) * 100]);
               chartFrekuensi.updateSeries([(data.frekuensi - 40) / (60 - 40) * 100]);
               chartDaya.updateSeries([(data.daya - 0) / (50 - 0) * 100]);
-              chartEnergi.updateSeries([(data.energi - 0) / (10 - 0) * 100]);
+              // chartEnergi.updateSeries([(data.energi - 0) / (10 - 0) * 100]);
               chartKecepatan.updateSeries([(data.kecepatan - 0) / (10 - 0) * 100]);
 
               $("#text-lat").html(function(i, original){
