@@ -33,4 +33,4 @@ Route::get('/motorcar-all', [App\Http\Controllers\MonitoringController::class, '
 Route::get('/motor', [App\Http\Controllers\MonitoringController::class, 'getMotor']);
 Route::get('/trailer', [App\Http\Controllers\MonitoringController::class, 'getTrailer']);
 
-Route::get('/report', [App\Http\Controllers\DashboardController::class, 'createPDF']);
+Route::get('/report', [App\Http\Controllers\DashboardController::class, 'printPdf']);

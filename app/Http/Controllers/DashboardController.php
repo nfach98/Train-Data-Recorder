@@ -21,17 +21,18 @@ class DashboardController extends Controller
         return view('dashboard', ["train" => $train]);
     }
 
-    public function createPDF() {
-    	$train = Train::find(Auth::user()->id_train);
+    public function printPdf() {
+        $train = Train::find(Auth::user()->id_train);
 
-      	$data = [
+        $data = [
             'train' => $train,
             'data' => MotorCar::where(['id_train' => Auth::user()->id_train])
-	        	->limit(100)
-	        	->get(),
+                ->limit(100)
+                ->get(),
         ];
 
         $pdf = PDF::loadView('pdf', $data);
+        $pdf->setPaper('A4', 'landscape');
         return $pdf->download('report_lrt_'.$train->id.'.pdf');
     }
 }
