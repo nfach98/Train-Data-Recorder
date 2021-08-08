@@ -30,16 +30,16 @@
 	<table border="1" style="width: 100%;">
 		<tr>
 			<th>Tanggal</th>
-			<th>Kemiringan</th>
-			<th>Suhu bearing</th>
-			<th>Kecepatan</th>
-			<th>Tegangan</th>
-			<th>Arus</th>
-			<th>Frekuensi</th>
-			<th>Daya</th>
-			<th>Energi</th>
-			<th>Latitude</th>
-			<th>Longitude</th>
+			<th>Kemiringan (°)</th>
+			<th>Suhu bearing (°C)</th>
+			<th>Kecepatan (km/jam)</th>
+			<th>Tegangan (V)</th>
+			<th>Arus (A)</th>
+			<th>Frekuensi (Hz)</th>
+			<th>Daya (W)</th>
+			<th>Energi (kWh)</th>
+			<th>Latitude (°)</th>
+			<th>Longitude (°)</th>
 		</tr>
 		@foreach ($data as $dt)
 			<tr>
