@@ -192,7 +192,7 @@
               if(type == "motorcar"){
                 chartSpeed.updateSeries([{
                   name: 'Kecepatan',
-                  data: tegangan
+                  data: kecepatan
                 }]);
 
                 chartSpeed.updateOptions({
