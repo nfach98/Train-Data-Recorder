@@ -4,7 +4,13 @@
   <div class="container-fluid py-3">
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          <a href="{{ URL::to('/report') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm"></i> Cetak Laporan</a>
+
+          <form method="POST" action="{{ URL::to('/report') }}" style="text-align: center;">
+            @csrf
+            <input id="jarak" type="hidden" class="form-control @error('jarak') is-invalid @enderror" name="jarak" value="{{ old('jarak') }}" required autocomplete="jarak" placeholder="ID Pegawai">
+
+            <button id="btn-report" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm"></i> Cetak Laporan</button>
+          </form>
       </div>
 
       <div class="row">
@@ -211,6 +217,34 @@
     var chartKecepatan = new ApexCharts(document.querySelector(".chart-speed"), optKecepatan);
     chartKecepatan.render();
 
+    // Fungsi untuk menghitung jarak 2 titik dengan haversine
+    function haversineDistance(coords1, coords2) {
+      // Fungsi mengubah ke radian
+      function toRad(x) {
+        return x * Math.PI / 180;
+      }
+
+      var lon1 = coords1[0];
+      var lat1 = coords1[1];
+
+      var lon2 = coords2[0];
+      var lat2 = coords2[1];
+
+      var R = 6371; // 6371 untuk km, 6371000 untuk m
+
+      var x1 = lat2 - lat1;
+      var dLat = toRad(x1);
+      var x2 = lon2 - lon1;
+      var dLon = toRad(x2)
+      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      var d = R * c;
+
+      return d.toFixed(4);
+    }
+
     $(document).ready(function() {
       setInterval(function(){
         $.ajax({
@@ -231,6 +265,8 @@
               // chartEnergi.updateSeries([(data.energi - 0) / (10 - 0) * 100]);
               chartKecepatan.updateSeries([(data.kecepatan - 0) / (10 - 0) * 100]);
 
+              var jarak = haversineDistance([data.start_longitude, data.start_latitude], [data.longitude, data.latitude]);
+
               $("#text-lat").html(function(i, original){
                 return data.latitude; 
               });
@@ -238,6 +274,8 @@
               $("#text-lng").html(function(i, original){
                 return data.longitude; 
               });
+
+              $("#jarak").val(jarak);
             }
           },
           error: function(XMLHttpRequest, status, error) { 

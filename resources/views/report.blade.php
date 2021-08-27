@@ -26,6 +26,7 @@
 
 	<h2 style="margin-top: 2rem;">Nama: {{ $train->nama }}</h2>
 	<h2>ID: {{ $train->id }}</h2>
+	<h2>Jarak: {{ $jarak }} km</h2>
 
 	<table border="1" style="width: 100%;">
 		<tr>

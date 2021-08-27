@@ -73,6 +73,8 @@
               var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
               var d = R * c;
 
+              console.log(Math.PI);
+
               // Tampilkan text jarak
               $("#distance").show();
 
